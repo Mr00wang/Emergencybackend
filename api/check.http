@@ -1,0 +1,50 @@
+@url=http://localhost:5000/api/check
+@json=Content-Type: application/json
+@token=token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjcyY2IyM2Q0Mzg1OGMzN2Q5YTU2MzciLCJpYXQiOjE2NTIyMTg0MDQsImV4cCI6MTY1MjI0MDAwNH0.EArcYlz_BNl0TDZNoJPS_Tbk2Bkn66NPY-W7tnNf4h8
+
+### 获取审核列表
+get {{url}}/query
+{{token}}
+
+### 根据审核类型查找信息
+get {{url}}/queryByCheckType?check_type=应急信息
+{{token}}
+
+### 根据审核人查找信息
+get {{url}}/queryByCheckPeople?check_people=admin
+{{token}}
+
+### 新增审核信息
+post {{url}}/create
+{{json}}
+{{token}}
+
+{
+    "check_type":  "志愿者信息", 
+    "type_id": "62753c228d2b6800042691b1",
+    "check_people":  "admin",
+    "check_status":  0,
+    "check_text": "可及时反馈"
+}
+
+### 删除求助信息
+delete {{url}}/delete
+{{json}}
+{{token}}
+
+{
+    "_id":"6273df87563e900bffd84d94"
+}
+
+### 修改求助信息
+post {{url}}/update
+{{json}}
+{{token}}
+
+{
+    "check_type":  "求助信息", 
+    "check_context": "疫情咨询",
+    "check_people":  "admin",
+    "check_status":  0,
+    "check_text": "可及时反馈"
+}

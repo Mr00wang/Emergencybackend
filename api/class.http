@@ -1,0 +1,40 @@
+@url=http://10.62.85.136:9090
+@json=Content-Type: application/json
+@token=token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxIiwiZXhwIjoxNjUxNjc2NDc5fQ.5uGUJ8XWWlGxI37xWKNiImPHNkMtPTTtgOi558cXJYk
+
+### 登录
+post {{url}}/user/login
+{{json}}
+
+{
+    "username":"admin",
+    "password":"admin"
+}
+
+### 获取班级信息
+get {{url}}/cla
+{{token}}
+
+### 
+get {{url}}/cla/class/
+{{token}}
+
+### 获取课程信息
+get {{url}}/course
+{{token}}
+
+### 获取课程信息
+get {{url}}/course/1
+{{token}}
+
+### 根据教师姓名获取班级信息
+get {{url}}/course/name/admin
+{{token}}
+
+### 根据班级信息获取课程信息
+get {{url}}/cla/course/1
+{{token}}
+
+### 根据班级ID获取学生信息
+get {{url}}/cla/student/2
+{{token}}

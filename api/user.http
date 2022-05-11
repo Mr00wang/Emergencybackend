@@ -1,0 +1,57 @@
+@url=http://localhost:5000
+@json=Content-Type: application/json
+@token=token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjcyY2IyM2Q0Mzg1OGMzN2Q5YTU2MzciLCJpYXQiOjE2NTIwOTUwOTIsImV4cCI6MTY1MjExNjY5Mn0.Fcl3RyQE9GoUwOjTGOMr6F0TRPzgatYVffq2UpGotpY
+
+### 用户登录
+post {{url}}/api/user/login
+{{json}}
+
+{
+    "user_username":"admin",
+    "user_password":"Qvyw3GlOLeS/opLmObvlxhkPLzabzlcCxwOKKthOH/eQrqp9EG3jTkuwygYKeS5N1EM/4tU2EwpTrkySBkyiSzalhvYXfqRtRPR2q04cX0PQ52lkHwXKHbigm235i3ZlcRULE+no94tgnUyY8hujJc3uiQ6OqSx5EJfgxcNv+Jo="
+}
+
+### 获取用户
+get {{url}}/api/user/query
+{{token}}
+
+### 根据用户名查找用户
+get {{url}}/api/user/queryByName?user_name=管理员
+{{token}}
+
+### 新增用户
+post {{url}}/api/user/create
+{{json}}
+{{token}}
+
+{
+    "user_username":"wangjinglong",
+    "user_password":"gNA2cyLiDL/t+t021r04Q0LLQPwCWd9DHWiWSQXVVkYelVUNoKpR+Dyeof+62+1zODyZAWlTJ9JFgPpGNKVlkLAf9DclcCG2V/odGWnG+b7kh0ssWlp66FVWO9Hgdpc/J4XrAUYRQZI4ITIRE07AvSbbSmFPTFG2iJTjgRhC4+Y=",
+    "user_name":"汪京龙",
+    "user_email":"wangjinglong@qq.com",
+    "user_phone":"18347558688",
+    "role_id":"627245e8f897529488bd6b49"
+}
+
+### 删除用户
+delete {{url}}/api/user/delete
+{{json}}
+{{token}}
+
+{
+    "_id":"627232095c1504d8d380e274"
+}
+
+### 修改用户
+post {{url}}/api/user/update
+{{json}}
+{{token}}
+
+{
+    "_id": "6272cb23d43858c37d9a5637",
+    "user_username":"admin",
+    "user_name":"admin",
+    "user_email":"admin@qq.com",
+    "user_phone":"18348447589",
+    "role_id":"62723aaef897529488bd6b39"
+}

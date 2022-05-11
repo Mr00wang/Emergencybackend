@@ -1,0 +1,56 @@
+@url=http://localhost:5000/api/emergency
+@json=Content-Type: application/json
+@token=token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjcyY2IyM2Q0Mzg1OGMzN2Q5YTU2MzciLCJpYXQiOjE2NTIyMTg0MDQsImV4cCI6MTY1MjI0MDAwNH0.EArcYlz_BNl0TDZNoJPS_Tbk2Bkn66NPY-W7tnNf4h8
+
+### 获取应急信息列表
+get {{url}}/query
+{{token}}
+
+### 根据应急信息类型查找信息
+get {{url}}/queryByEmergencyType?emergency_type=疫情防控
+{{token}}
+
+### 根据应急信息标题查找信息
+get {{url}}/queryByEmergencyTitle?emergency_title=外省返郑
+{{token}}
+
+### 新增应急信息
+post {{url}}/create
+{{json}}
+{{token}}
+
+{
+    "emergency_type":  "疫情防控",
+    "emergency_title": "郑州市新冠肺炎疫情防控指挥部办公室关于调整主城区疫情防控措施的通告(2022年88号)",  
+    "emergency_context": "郑州市新冠肺炎疫情防控指挥部办公室73号通告发布以来,在省委、省政府的坚强领导和全市人民的共同努力下,疫情防控工作取得了阶段性重要成果。为更好统筹疫情防控和经济社会发展,确保群众正常生产生活,经研究,自5月11日零时起,“调整主城区疫情防控措施”。", 
+    "emergency_picture": "http://localhost:5000/upload/image-1651764943326.png", 
+    "emergency_longitude": "116.401337", 
+    "emergency_latitude": "39.907886",  
+    "emergency_emergency": 2
+}
+
+### 删除应急信息
+delete {{url}}/delete
+{{json}}
+{{token}}
+
+{
+    "_id":"6273cf4a856c5866840fb45d"
+}
+
+### 修改应急信息
+post {{url}}/update
+{{json}}
+{{token}}
+
+{
+    "_id": "62751eeb194cc9650ceab280",
+    "emergency_type":   "疫情防控",
+    "emergency_title": "外省返郑隔离政策",  
+    "emergency_context": "采取三天两检，居家隔离七天", 
+    "emergency_picture": "http://localhost:5000/upload/image-1651764943326.png", 
+    "emergency_longitude": "116.401337", 
+    "emergency_latitude": "39.907886", 
+    "emergency_emergency": 0, 
+    "check_id":     "6273df87563e900bffd84d94"
+}

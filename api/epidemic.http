@@ -1,0 +1,70 @@
+@url=http://localhost:5000/api/epidemic
+@json=Content-Type: application/json
+@token=token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjcyY2IyM2Q0Mzg1OGMzN2Q5YTU2MzciLCJpYXQiOjE2NTE4NDI3NzYsImV4cCI6MTY1MTg2NDM3Nn0.7qmTCYd4LJlGS4-4AVxe5btQaOT5-vWS24pSJpcWM54
+
+### 获取核算检测点列表
+get {{url}}/query
+{{token}}
+
+### 根据核酸检测点名称查找信息
+get {{url}}/queryByEpidemicName?epidemic_name=郑州轻工业核酸检测点
+{{token}}
+
+### 新增核酸检测点信息
+post {{url}}/create
+{{json}}
+{{token}}
+
+{
+    "epidemic_name":     "郑州轻工业核酸检测点",
+    "epidemic_address":   "河南省郑州市高新区郑州轻工业大学136号", 
+    "epidemic_picture":   "http://localhost:5000/upload/image-1651764943326.png",
+    "epidemic_illustrate": "请佩戴好口罩，按照时间段有序进行核酸检测", 
+    "epidemic_longitude": "116.401337", 
+    "epidemic_latitude": "39.907886", 
+    "epidemic_startTime": 1651842795729, 
+    "epidemic_endTime":   1651856820437,
+    "epidemic_totalPeople": 10, 
+    "check_id":          "6273df87563e900bffd84d94"
+}
+
+### 删除核酸检测点信息
+delete {{url}}/delete
+{{json}}
+{{token}}
+
+{
+    "_id":"6275611cf72bd6663fab6502"
+}
+
+### 修改核酸检测点信息
+post {{url}}/update
+{{json}}
+{{token}}
+
+{
+    "_id": "6275611cf72bd6663fab6502",
+     "epidemic_name":     "郑州轻工业大学核酸检测点",
+    "epidemic_address":   "河南省郑州市高新区郑州轻工业大学136号", 
+    "epidemic_picture":   "http://localhost:5000/upload/image-1651764943326.png",
+    "epidemic_illustrate": "请佩戴好口罩，按照时间段有序进行核酸检测", 
+    "epidemic_longitude": "116.401337", 
+    "epidemic_latitude": "39.907886", 
+    "epidemic_startTime": 1651842795729, 
+    "epidemic_endTime":   1651856820437,
+    "epidemic_totalPeople": 10, 
+    "check_id":          "6273df87563e900bffd84d94"
+}
+
+### 登录检测人数核酸检测总人数+1
+get {{url}}/addEpidemicPeople?_id=6275611cf72bd6663fab6502
+
+
+
+### 登出检测人数核酸检测总人数-1
+post {{url}}/minusEpidemicPeople
+{{json}}
+
+{
+    "_id": "6275611cf72bd6663fab6502"
+}

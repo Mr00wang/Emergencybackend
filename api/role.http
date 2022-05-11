@@ -1,0 +1,45 @@
+@url=http://localhost:5000
+@json=Content-Type: application/json
+@token=token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjcyY2IyM2Q0Mzg1OGMzN2Q5YTU2MzciLCJpYXQiOjE2NTIxMjIyODEsImV4cCI6MTY1MjE0Mzg4MX0.KUbNPIBqWPeNOJdJ9afxeMJFWizyhPBFRFdC8lnOTRo
+
+### 获取角色
+get {{url}}/api/role/query
+{{token}}
+
+### 根据角色名查找角色
+get {{url}}/api/role/queryByName?role_name=管理员
+{{token}}
+
+### 新增角色
+post {{url}}/api/role/create
+{{json}}
+{{token}}
+
+{
+    "role_name": "审核员"
+}
+
+### 删除角色
+delete {{url}}/api/role/delete?_id=6279365cc7755060c305ecd9
+{{token}}
+
+
+### 修改角色
+post {{url}}/api/role/update
+{{json}}
+{{token}}
+
+{
+    "_id":"62723aaef897529488bd6b39",
+    "role_name": "超级管理员",
+    "role_menu": [
+        "/home",
+        "/charts/bar",
+        "/home",
+        "/charts/line",
+        "/category",
+        "/product",
+        "/products"
+    ],
+    "auth_name": "admin"
+}

@@ -1,0 +1,58 @@
+@url=http://localhost:5000/api/help
+@json=Content-Type: application/json
+@token=token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjcyY2IyM2Q0Mzg1OGMzN2Q5YTU2MzciLCJpYXQiOjE2NTIxOTU5NTAsImV4cCI6MTY1MjIxNzU1MH0.RqxXnSUC5iCYtLzPeKyZT3k8-CY2PG_-ce2qWOXgrw8
+
+### 获取求助列表
+get {{url}}/query
+{{token}}
+
+### 根据请求帮助者姓名查找信息
+get {{url}}/query?help_type=疫情防控
+{{token}}
+
+### 根据请求帮助者电话查找信息
+get {{url}}/query?help_phone=18348447589
+{{token}}
+
+### 新增求助信息
+post {{url}}/create
+{{json}}
+{{token}}
+
+{
+    "help_name": "陈闯",
+    "help_phone": "18348442758",
+    "help_type": "疫情防控", 
+    "help_context": "请问一下从漯河返回郑州的疫情防控政策。", 
+    "help_address": "河南省漯河市", 
+    "help_picture": "http://localhost:5000/upload/image-1651764943326.png", 
+    "help_longitude": "116.401337", 
+    "help_latitude": "39.907886", 
+    "help_emergency": 1
+}
+
+### 删除求助信息
+delete {{url}}/delete
+{{json}}
+{{token}}
+
+{
+    "_id":"6273cf4a856c5866840fb45d"
+}
+
+### 修改求助信息
+post {{url}}/update
+{{json}}
+{{token}}
+
+{
+    "_id":"6273d0d2e2986a1f43ea3407",
+    "help_name": "汪京龙",
+    "help_phone": "18348447589",
+    "help_type": "疫情咨询", 
+    "help_context": "请问一下从江苏回郑州的疫情防控政策！", 
+    "help_address": "河南省郑州市郑州轻工业大学", 
+    "help_picture": "http://www.baidu.com", 
+    "help_emergency": "中", 
+    "check_id":     "123456"
+}

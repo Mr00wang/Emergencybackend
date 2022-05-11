@@ -1,0 +1,45 @@
+@url=http://localhost:5000/api/volunteer
+@json=Content-Type: application/json
+@token=token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjcyY2IyM2Q0Mzg1OGMzN2Q5YTU2MzciLCJpYXQiOjE2NTIxOTU5NTAsImV4cCI6MTY1MjIxNzU1MH0.RqxXnSUC5iCYtLzPeKyZT3k8-CY2PG_-ce2qWOXgrw8
+
+### 获取志愿者列表
+get {{url}}/query
+{{token}}
+
+### 根据志愿者姓名查找信息
+get {{url}}/queryByVolunteerName?volunteer_name=汪京龙
+{{token}}
+
+
+### 新增志愿者信息
+post {{url}}/create
+{{json}}
+{{token}}
+
+{
+    "volunteer_name":    "尤艳涛",
+    "volunteer_phone":   "18385748584",
+    "volunteer_address": "河南省郑州市郑州轻工业大学"
+}
+
+### 删除志愿者信息
+delete {{url}}/delete
+{{json}}
+{{token}}
+
+{
+    "_id":"6273cf4a856c5866840fb45d"
+}
+
+### 修改志愿者信息
+post {{url}}/update
+{{json}}
+{{token}}
+
+{
+    "_id" : "62753c228d2b6800042691b1",
+    "volunteer_name":    "汪京龙",
+    "volunteer_phone":   "18348447589",
+    "volunteer_address": "河南省郑州市高新区郑州轻工业大学136号",
+    "check_id":          "6273df87563e900bffd84d94"
+}

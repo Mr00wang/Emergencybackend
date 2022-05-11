@@ -1,0 +1,54 @@
+@url=http://localhost:5000/api/goods
+@json=Content-Type: application/json
+@token=token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjcyY2IyM2Q0Mzg1OGMzN2Q5YTU2MzciLCJpYXQiOjE2NTIyMTg0MDQsImV4cCI6MTY1MjI0MDAwNH0.EArcYlz_BNl0TDZNoJPS_Tbk2Bkn66NPY-W7tnNf4h8
+
+### 获取资源列表
+get {{url}}/query
+{{token}}
+
+### 根据资源名称查找信息
+get {{url}}/queryByGoodsName?goods_name=防护
+{{token}}
+
+### 根据资源类型查找信息
+get {{url}}/queryByGoodsType?goods_type=疫情防控
+{{token}}
+
+### 新增资源信息
+post {{url}}/create
+{{json}}
+{{token}}
+
+{
+    "goods_name":   "防护服",
+    "goods_type":   "疫情防控", 
+    "goods_detail": "用于核酸检测和日常疫情防控", 
+    "goods_origin": "河南郑州", 
+    "check_id":     "6273df87563e900bffd84d94"
+}
+
+### 删除资源信息
+delete {{url}}/delete
+{{json}}
+{{token}}
+
+{
+    "_id":"6273cf4a856c5866840fb45d"
+}
+
+### 修改资源信息
+post {{url}}/update
+{{json}}
+{{token}}
+
+{
+    "_id":"6273d0d2e2986a1f43ea3407",
+    "help_name": "汪京龙",
+    "help_phone": "18348447589",
+    "help_type": "疫情咨询", 
+    "help_context": "请问一下从江苏回郑州的疫情防控政策！", 
+    "help_address": "河南省郑州市郑州轻工业大学", 
+    "help_picture": "http://www.baidu.com", 
+    "help_emergency": "中", 
+    "check_id":     "123456"
+}
